@@ -1,0 +1,61 @@
+.movieSection {
+  background-image: url("../../images/movieSection.JPG");
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  height: 1000px;
+  padding-top: 15%;
+}
+.restaurantSection {
+  background-image: url("../../images/foodSection.JPG");
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  height: 1000px;
+  padding-top: 15%;
+}
+.favoriteSection {
+  background-image: url("../../images/favoritesPage.JPG");
+  background-size: cover;
+  background-repeat: none;
+  background-position: center;
+  height: 1000px;
+  padding-top: 15%;
+}
+
+.section__card {
+  border-radius: 30px;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-right: auto;
+  background-color: #70adb5;
+  opacity: 0.96;
+  box-shadow: 0 0 20px 10px black;
+  cursor: pointer;
+}
+
+.section__link:link {
+  text-decoration: none;
+  color: black;
+}
+.section__link:visited {
+  text-decoration: none;
+  color: black;
+}
+.section__link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.section__content {
+  padding: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .home_section {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

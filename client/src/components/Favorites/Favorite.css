@@ -1,0 +1,113 @@
+html,
+.mainContainer,
+#root {
+  background-color: #407088;
+}
+
+.favorites__refresh {
+  border: 1px solid black;
+  outline: none;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 100%;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  background-color: #343a40;
+}
+.favorites__refresh:hover {
+  background-color: #373a40;
+  color: black;
+  box-shadow: 0 0 10px 2px black;
+}
+.favorites__refresh:active {
+  outline: none;
+  background-color: #686d76;
+  box-shadow: 0 0 5px 1px black inset;
+}
+
+.movie__row,
+.restaurant__row {
+  width: 50%;
+  float: left;
+  padding: 40px;
+  margin-bottom: 100px;
+  justify-content: space-around;
+}
+
+.movie__SubRow,
+.restaurant__SubRow {
+  text-align: center;
+  height: max-content;
+  padding: 30px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  background-color: #70adb5;
+  box-shadow: 0 0 20px 3px black;
+}
+
+.collapse {
+  margin-top: 50px;
+}
+
+.favorite__header {
+  text-transform: uppercase;
+  padding-top: 20px;
+  margin-bottom: 50px;
+}
+
+.placeholder__paragraph {
+  margin: 200px;
+  /* padding: 40px; */
+  font-size: xx-large;
+  font-weight: bolder;
+  border-radius: 20px;
+  box-shadow: 0 0 40px 2px black;
+}
+
+.movie__rating,
+.movie__title,
+.movie__description {
+  padding: 10px 20px;
+}
+
+.movie__title {
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+@media screen and (max-width: 600px) {
+  .favorite__header,
+  .movie__title {
+    font-size: medium;
+    font-weight: bolder;
+  }
+
+  .movie__SubRow,
+  .restaurant__SubRow {
+    width: 250px;
+    padding-bottom: 20px;
+    margin-bottom: 75px;
+    height: max-content;
+  }
+
+  .restaurant__row {
+    padding-bottom: 100px;
+    margin-bottom: 100px;
+  }
+
+  .restaurant__row,
+  .movie__row {
+    width: 300px;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 25px;
+  }
+  .sub__faveRestaurant {
+    margin-top: 0;
+    margin-bottom: 100px;
+  }
+}

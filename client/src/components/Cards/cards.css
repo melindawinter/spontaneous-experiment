@@ -1,0 +1,102 @@
+.restaurant__main {
+  background-image: url("../../images/restaurantBackground.JPG");
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.random-btn,
+.favorite__food,
+.call,
+.website {
+  background: none;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: inherit;
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 15px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #343a40;
+  color: white;
+}
+
+.random-btn:hover,
+.favorite__food:hover,
+.call:hover,
+.website:hover {
+  background-color: #373a40;
+  color: black;
+  box-shadow: 0 0 10px 2px black;
+}
+.random-btn:active,
+.favorite__food:active,
+.call:active,
+.website:active {
+  outline: none;
+  background-color: #686d76;
+  box-shadow: 0 0 5px 1px black inset;
+}
+
+
+
+.cuisine,
+.price,
+.address,
+.list-group {
+  list-style-type: none;
+  margin: 10px;
+  background-color: #70adb5;
+}
+.mainHeader {
+  display: inline-block;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #70adb5;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 3px black;
+}
+
+.cardImg {
+  height: 120px;
+  width: 160px;
+  margin-top: 25px;
+}
+
+.website,
+.call {
+  margin-top: 20px;
+  width: 150px;
+}
+
+.restaurant__placeholder {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 40px;
+}
+
+
+@media screen and (max-width:600px){
+  .results{
+    width: 375px;
+    max-width: 90%;
+    margin-bottom: 100px;
+  }
+}
+
