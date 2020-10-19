@@ -10,7 +10,7 @@ const dbConnection = require("./backend/database");
 const MongoStore = require("connect-mongo")(session);
 const passport = require("./backend/passport");
 const app = express();
-// const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 // Route requires
 const user = require("./backend/routes/userRoutes");
 const favoriteMoviesRouter = require("./backend/routes/favoriteMoviesRoutes");
@@ -50,6 +50,8 @@ app.use(
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // calls the deserializeUser
+
+require("./backend/config/passportConfig")(passport);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
