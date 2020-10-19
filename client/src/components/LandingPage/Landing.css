@@ -6,12 +6,10 @@
   height: 1000px;
 }
 
-.maincard {
+.landing-card {
   justify-content: center;
   padding-top: 200px;
-
 }
-
 
 .landingHeader {
   border-radius: 20px;
@@ -33,7 +31,7 @@
     max-width: 80%;
   }
 
-  .maincard {
-    padding-top: 60%;
+  .landing-card {
+    padding-top: 35%;
   }
 }

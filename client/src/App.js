@@ -19,8 +19,8 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
-      // favoriteMovies: [],
-      // favoriteFoods: [],
+      favoriteMovies: [],
+      favoriteFoods: [],
       redirectTo: null
     };
 
@@ -30,16 +30,16 @@ class App extends Component {
     this.updateStatus = this.updateStatus.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.getUser();
-  //   if (!this.state.favoriteMovies.length) {
-  //     this.getMovieDB();
+  componentDidMount() {
+    this.getUser();
+    if (!this.state.favoriteMovies.length) {
+      this.getMovieDB();
 
-  //     if (!this.state.favoriteFoods.length) {
-  //       this.getFoodDB();
-  //     }
-  //   }
-  // }
+      if (!this.state.favoriteFoods.length) {
+        this.getFoodDB();
+      }
+    }
+  }
 
   updateUser(userObject) {
     this.setState(userObject);
@@ -92,7 +92,7 @@ class App extends Component {
           username={this.state.username}
         />
 
-        {/* {this.state.loggedIn} */}
+        {this.state.loggedIn}
         {/* Routes to different components */}
         <Switch>
           <Route

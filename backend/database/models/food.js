@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
-const favoriteFoodSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const favoriteFoodSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -11,4 +13,6 @@ const favoriteFoodSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("FavoriteFood", favoriteFoodSchema);
+const favoriteFood = mongoose.model("FavoriteFood", favoriteFoodSchema);
+
+module.exports = favoriteFood;

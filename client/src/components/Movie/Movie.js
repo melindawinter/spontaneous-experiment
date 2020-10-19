@@ -6,6 +6,7 @@ const tmdb_url = "https://www.themoviedb.org/movie";
 const api_url = "https://api.themoviedb.org";
 const image_url = "https://image.tmdb.org/t/p/w500";
 const api_key = process.env.REACT_APP_MOVIE_API_KEY;
+console.log(process.env.REACT_APP_MOVIE_API_KEY);
 const language = "en-us";
 const genres = {
   Action: 28,
@@ -28,6 +29,7 @@ const genres = {
   War: 10752,
   Western: 37
 };
+
 class Movie extends Component {
   constructor(props) {
     super(props);
