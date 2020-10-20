@@ -43,7 +43,7 @@ app.use(morgan("dev"));
 app.use(
   session({
     secret: "iamacat",
-    // store: new MongoStore({ mongooseConnection: dbConnection }),
+    store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false, //required
     saveUninitialized: false //required
   })
