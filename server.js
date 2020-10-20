@@ -1,23 +1,31 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const session = require("express-session");
-const dbConnection = require("./backend/database");
-const MongoStore = require("connect-mongo")(session);
-const passport = require("./backend/passport");
+// if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
+// require("dotenv").config();
+// const express = require("express");
 const app = express();
+
+const session = require("express-session");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
+
+const passport = require("passport");
+
+const bodyParser = require("body-parser");
+
+// const dbConnection = require("./backend/database");
+
 const PORT = process.env.PORT || 8080;
+
 // Route requires
-const user = require("./backend/routes/userRoutes");
+const userRoutes = require("./backend/routes/userRoutes");
 const favoriteMoviesRouter = require("./backend/routes/favoriteMoviesRoutes");
 const favoriteFoodsRouter = require("./backend/routes/favoriteFoodRoutes");
-const mongoose = require("mongoose");
+
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/spontaneous-experiment",
+  process.env.MONGODB_URI,
+  //  || "mongodb://localhost/spontaneous-experiment",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -27,31 +35,35 @@ mongoose.connect(
 );
 
 // MIDDLEWARE
-app.use(morgan("dev"));
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
-app.use(bodyParser.json());
-app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Sessions
+app.use(morgan("dev"));
+
 app.use(
   session({
-    secret: "iamacat", //pick a random string to make the hash that is generated secure
-    store: new MongoStore({ mongooseConnection: dbConnection }),
+    secret: "iamacat",
+    // store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false, //required
     saveUninitialized: false //required
   })
 );
 
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true
+//   })
+// );
+
 // Passport
 app.use(passport.initialize());
-app.use(passport.session()); // calls the deserializeUser
+app.use(passport.session({ secret: "iamacat" })); // calls the deserializeUser
 
-require("./backend/config/passportConfig")(passport);
+app.use(bodyParser.json());
+// app.use(express.static("public"));
+
+// app.use(express.json());
+// Sessions
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -59,7 +71,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routes
-app.use("/user", user);
+app.use("/user", userRoutes);
 app.use("/favoriteMovies", favoriteMoviesRouter);
 app.use("/favoriteFoods", favoriteFoodsRouter);
 
@@ -70,7 +82,6 @@ app.get("*", (req, res) => {
 });
 
 // Starting Server
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Mixing it up on port ${PORT}`);
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
