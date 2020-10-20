@@ -9,6 +9,7 @@ const session = require("express-session");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
+const path = require("path");
 
 const passport = require("passport");
 
