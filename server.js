@@ -1,8 +1,8 @@
-// if (process.env.NODE_ENV !== "production") {
-//   require("dotenv").config();
-// }
-// require("dotenv").config();
-// const express = require("express");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+require("dotenv").config();
+const express = require("express");
 const app = express();
 
 const session = require("express-session");
@@ -14,7 +14,7 @@ const passport = require("passport");
 
 const bodyParser = require("body-parser");
 
-// const dbConnection = require("./backend/database");
+const dbConnection = require("./backend/database");
 
 const PORT = process.env.PORT || 8080;
 
@@ -24,8 +24,7 @@ const favoriteMoviesRouter = require("./backend/routes/favoriteMoviesRoutes");
 const favoriteFoodsRouter = require("./backend/routes/favoriteFoodRoutes");
 
 mongoose.connect(
-  process.env.MONGODB_URI,
-  //  || "mongodb://localhost/spontaneous-experiment",
+  process.env.MONGODB_URI || "mongodb://localhost/spontaneous-experiment",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -60,9 +59,9 @@ app.use(passport.initialize());
 app.use(passport.session({ secret: "iamacat" })); // calls the deserializeUser
 
 app.use(bodyParser.json());
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
-// app.use(express.json());
+app.use(express.json());
 // Sessions
 
 // Serve up static assets (usually on heroku)
@@ -71,7 +70,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routes
-app.use("/users", userRoutes);
+app.use("/user", userRoutes);
 app.use("/favoriteMovies", favoriteMoviesRouter);
 app.use("/favoriteFoods", favoriteFoodsRouter);
 
