@@ -71,7 +71,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Routes
-app.use("/user", userRoutes);
+app.use("/users", userRoutes);
 app.use("/favoriteMovies", favoriteMoviesRouter);
 app.use("/favoriteFoods", favoriteFoodsRouter);
 
